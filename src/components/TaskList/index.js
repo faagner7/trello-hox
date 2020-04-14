@@ -67,7 +67,7 @@ function TaskList() {
 
   return (
     <Grid container spacing={3} className={classes.root}>
-      <Grid item xs={3}>
+      <Grid item xs={4}>
         <Card className={classes.card}>
           {/* CARD TODO */}
           <Typography className={classes.title} variant="subtitle1">
@@ -119,7 +119,7 @@ function TaskList() {
         </Card>
       </Grid>
       {/* CARD DOING */}
-      <Grid item xs={3}>
+      <Grid item xs={4}>
         <Card className={classes.card}>
           <Typography className={classes.title} variant="subtitle1">
             Doing
@@ -144,7 +144,7 @@ function TaskList() {
         </Card>
       </Grid>
       {/* CARD DONE */}
-      <Grid item xs={3}>
+      <Grid item xs={4}>
         <Card className={classes.card}>
           <Typography className={classes.title} variant="subtitle1">
             Done
