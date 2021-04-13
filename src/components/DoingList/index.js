@@ -1,25 +1,25 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   ListItem,
   ListItemText,
   IconButton,
-  makeStyles
-} from "@material-ui/core";
-import BackIcon from "@material-ui/icons/ArrowBack";
-import DoneIcon from "@material-ui/icons/Done";
-import DeleteIcon from "@material-ui/icons/Delete";
+  makeStyles,
+} from '@material-ui/core';
+import BackIcon from '@material-ui/icons/ArrowBack';
+import DoneIcon from '@material-ui/icons/Done';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: "#d9d9d9",
+    backgroundColor: '#d9d9d9',
     borderRadius: 12,
-    marginBottom: 2
+    marginBottom: 2,
   },
   wordWrap: {
-    wordWrap: "break-word"
-  }
+    wordWrap: 'break-word',
+  },
 });
 
 function DoingList({ text, onRemove, onTodo, onDone }) {
@@ -47,14 +47,14 @@ DoingList.propTypes = {
   text: PropTypes.string,
   onRemove: PropTypes.func,
   onTodo: PropTypes.func,
-  onDone: PropTypes.func
+  onDone: PropTypes.func,
 };
 
 DoingList.defaultProps = {
-  text: "",
+  text: '',
   onRemove: () => {},
   onTodo: () => {},
-  onDone: () => {}
+  onDone: () => {},
 };
 
 export default DoingList;

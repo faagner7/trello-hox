@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   List,
   makeStyles,
@@ -6,8 +6,8 @@ import {
   Grid,
   Button,
   TextField,
-  Typography
-} from "@material-ui/core";
+  Typography,
+} from '@material-ui/core';
 
 import {
   addTodo,
@@ -15,16 +15,16 @@ import {
   addDone,
   removeDone,
   addDoing,
-  removeDoing
-} from "../../store/actions";
-import { useDispatch, useSelector } from "react-redux";
-import AddIcon from "@material-ui/icons/Add";
+  removeDoing,
+} from '../../store/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import AddIcon from '@material-ui/icons/Add';
 
-import TodoList from "../TodoList";
-import DoneList from "../DoneList";
-import DoingList from "../DoingList";
+import TodoList from '../TodoList';
+import DoneList from '../DoneList';
+import DoingList from '../DoingList';
 
-import styles from "./styles";
+import styles from './styles';
 
 const todoSelector = ({ task }) => task.todo;
 const doneSelector = ({ task }) => task.done;
@@ -33,7 +33,7 @@ const doingSelector = ({ task }) => task.doing;
 const useStyles = makeStyles(styles);
 
 function TaskList() {
-  const [text = "", setText] = useState();
+  const [text = '', setText] = useState();
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -70,19 +70,15 @@ function TaskList() {
       <Grid item xs={4}>
         <Card className={classes.card}>
           {/* CARD TODO */}
-          <Typography className={classes.title} variant="subtitle1">
+          <Typography className={classes.title} variant='subtitle1'>
             Todo
           </Typography>
           <List className={classes.list}>
             {todos.map((todo, ind) => (
               <TodoList
-                variant="doneIcon"
+                variant='doneIcon'
                 key={todo.text}
                 text={todo.text}
-                // onDone={() => {
-                //   handleAddDone(todo.text);
-                //   handleRemove(ind);
-                // }}
                 onDoing={() => {
                   handleAddDoing(todo.text);
                   handleRemoveTodo(ind);
@@ -95,24 +91,25 @@ function TaskList() {
           <TextField
             className={classes.input}
             value={text}
-            onChange={e => setText(e.target.value)}
-            variant="outlined"
-            size="small"
-            placeholder="Insert your task here"
+            onChange={(e) => setText(e.target.value)}
+            variant='outlined'
+            size='small'
+            placeholder='Insert your task here'
             multiline
             autoFocus
           />
           <Button
             className={classes.button}
-            size="large"
+            size='large'
             onClick={() => {
               handleAddTodo(text);
-              setText("");
+              setText('');
             }}
+            disabled={text === ''}
             fullWidth
           >
             <AddIcon />
-            <Typography className={classes.addTask} variant="subtitle1">
+            <Typography className={classes.addTask} variant='subtitle1'>
               Add task
             </Typography>
           </Button>
@@ -121,7 +118,7 @@ function TaskList() {
       {/* CARD DOING */}
       <Grid item xs={4}>
         <Card className={classes.card}>
-          <Typography className={classes.title} variant="subtitle1">
+          <Typography className={classes.title} variant='subtitle1'>
             Doing
           </Typography>
           <List className={classes.list}>
@@ -146,7 +143,7 @@ function TaskList() {
       {/* CARD DONE */}
       <Grid item xs={4}>
         <Card className={classes.card}>
-          <Typography className={classes.title} variant="subtitle1">
+          <Typography className={classes.title} variant='subtitle1'>
             Done
           </Typography>
           <List className={classes.list}>
